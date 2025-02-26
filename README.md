@@ -1,6 +1,12 @@
 # LinearDSA-JFrame
 
 import java.awt.EventQueue;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -9,16 +15,15 @@ import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.Toolkit;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+
 public class LinearDSA extends JFrame {
+
 private static final long serialVersionUID = 1L;
 public static void main(String[] args) {
+
 EventQueue.invokeLater(new Runnable() {
 public void run() {
 try {
@@ -30,10 +35,12 @@ e.printStackTrace();
 }
 });
 }
+
 public void close() {
 WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
 }
+
 public LinearDSA() {
 setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 setBounds(100, 100, 450, 300);
@@ -54,6 +61,7 @@ DSA array = new DSA("Queue");
 array.setVisible(true);
 }
 });
+
 btnNewButton.setBounds(48, 177, 89, 23);
 contentPane.add(btnNewButton);
 JButton btnNewButton_1 = new JButton("Circular Queue");
@@ -64,6 +72,7 @@ DSA array = new DSA("CircularQueue");
 array.setVisible(true);
 }
 });
+
 btnNewButton_1.setBounds(267, 75, 103, 23);
 contentPane.add(btnNewButton_1);
 
@@ -75,6 +84,7 @@ DSA array = new DSA("Stack");
 array.setVisible(true);
 }
 });
+
 btnNewButton_2.setBounds(48, 127, 89, 23);
 contentPane.add(btnNewButton_2);
 JButton btnNewButton_3 = new JButton("DoubleLinkedList");
@@ -85,6 +95,7 @@ DSA array = new DSA("DoublyLinkedList");
 array.setVisible(true);
 }
 });
+
 btnNewButton_3.setBounds(267, 177, 103, 23);
 contentPane.add(btnNewButton_3);
 JButton btnNewButton_4 = new JButton("Array");
@@ -95,6 +106,7 @@ DSA array = new DSA("Array");
 array.setVisible(true);	
 }
 });
+
 btnNewButton_4.setBounds(48, 75, 89, 23);
 contentPane.add(btnNewButton_4);
 
@@ -106,6 +118,7 @@ DSA array = new DSA("SingleLinkedList");
 array.setVisible(true);
 }
 });
+
 btnNewButton_5.setBounds(267, 127, 103, 23);
 contentPane.add(btnNewButton_5);
 JLabel lblNewLabel = new JLabel("Data Structures");
