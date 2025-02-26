@@ -1,0 +1,149 @@
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import com.miniproject.linearDS.copy2.LinearDS;
+public class DSA extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField txt1;
+	private JTextField txt2;
+	private JTextField txt3;
+	private JTextField txt4;
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					DSA frame = new DSA("");
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	public void close() {
+		WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+		Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public DSA(String s) {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		LinearDS structures = new LinearDS();
+		
+		JButton btnNewButton = new JButton("Go Back");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				close();
+				LinearDSA mainFrame = new LinearDSA();
+				mainFrame.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(335, 227, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Display");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txt4.setText(structures.display(s));
+				
+			}
+		});
+		btnNewButton_1.setBounds(186, 142, 89, 29);
+		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("Size");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel.setBounds(88, 66, 36, 14);
+		contentPane.add(lblNewLabel);
+		
+		txt1 = new JTextField();
+		txt1.setBounds(78, 78, 46, 20);
+		contentPane.add(txt1);
+		txt1.setColumns(10);
+		
+		JButton btnNewButton_2 = new JButton("Create");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int num1 = Integer.parseInt(txt1.getText());
+				structures.create(num1);
+				JOptionPane.showMessageDialog(null, s + "Created");
+			}
+		});
+		btnNewButton_2.setBounds(256, 32, 89, 23);
+		contentPane.add(btnNewButton_2);
+		
+		txt2 = new JTextField();
+		txt2.setBounds(28, 121, 58, 20);
+		contentPane.add(txt2);
+		txt2.setColumns(10);
+		
+		txt3 = new JTextField();
+		txt3.setBounds(117, 121, 58, 20);
+		contentPane.add(txt3);
+		txt3.setColumns(10);
+		
+		JButton btnNewButton_3 = new JButton("Insert");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int value = Integer.parseInt(txt2.getText());
+				int position = Integer.parseInt(txt3.getText());
+				structures.insert(s, value, position-1);
+				JOptionPane.showMessageDialog(null,"In "+ s + " Inserted Value:" + value + " at postion:" + position);
+			}
+		});
+		btnNewButton_3.setBounds(201, 77, 89, 23);
+		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Delete");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int position = Integer.parseInt(txt3.getText());
+				structures.delete(s, position-1);
+				JOptionPane.showMessageDialog(null,"In "+ s + " Deleted at postion:" + position);
+			}
+		});
+		btnNewButton_4.setBounds(321, 77, 89, 23);
+		contentPane.add(btnNewButton_4);
+		
+		txt4 = new JTextField();
+		txt4.setBounds(21, 171, 403, 51);
+		contentPane.add(txt4);
+		txt4.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Element");
+		lblNewLabel_1.setBounds(40, 107, 46, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("Position");
+		lblNewLabel_3.setBounds(129, 107, 46, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_2 = new JLabel(s);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(21, 11, 169, 36);
+		contentPane.add(lblNewLabel_2);
+		
+	}
+}
