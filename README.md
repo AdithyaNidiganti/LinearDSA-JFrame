@@ -1,1 +1,1 @@
-
+This Java program creates a simple graphical user interface (GUI) using Swing to manage a collection of common linear data structures, including Queue, Circular Queue, Stack, Linked Lists, and Arrays.
